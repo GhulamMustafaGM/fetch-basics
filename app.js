@@ -1,17 +1,11 @@
-const res = fetch( "https://my-json-server.typicode.com/typicode/demo/posts", {
-  method: 'POST',
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify( {
-    title: 'This is a post',
-  }),
-});
+const res = fetch( "https://reqres.in/api/users?page=2" );
 
-res.then( ( res ) => res.json() )
+
+res
+  .then( ( res ) => res.json() )
   .then( ( data ) =>
   {
-    console.log( data );
+    console.log( data.data );
   } )
   .catch( () =>
   {
