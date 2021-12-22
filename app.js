@@ -1,13 +1,29 @@
-const res = fetch( "https://reqres.in/api/users?page=2" );
+// const res = fetch("https://reqres.in/api/users?page=2");
+
+// res
+//   .then((res) => res.json())
+//   .then((data) => {
+//     console.log(data.data);
+//   })
+//   .catch(() => {
+//     console.error("Something went wrong!");
+//   });
 
 
-res
-  .then( ( res ) => res.json() )
-  .then( ( data ) =>
+async function getData ()
+{
+  try
   {
-    console.log( data.data );
-  } )
-  .catch( () =>
+    const res = await fetch( "https://reqres.in/api/users" );
+
+    const data = await res.json();
+    console.log( res );
+  } catch ( err )
   {
-    console.error( "Something went wrong!" );
-  } );
+    console.log( err );
+    
+  }
+}
+
+getData();
+console.log( "Hello World!" );
